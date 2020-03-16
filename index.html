@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game oản tù tì với Tensorflow JS</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+    <script src="dist/bundle.js"></script>
+</head>
+<style>
+.button-large {
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding: 0 20rem;
+  background-color: green;
+}
+
+.button-outline {
+    color: green !important;
+    border-color: green !important;
+}
+
+.flip {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+</style>
+<body>
+    <div class="page-wrap">
+        <div class="container">
+            <div class="row" style="display: inline-block; padding-top: 50px">
+                <h3 class="title" style="text-align: center">Chơi game oản tù tì trên trình duyệt</h3>
+                <h5 class="title" style="text-align: center">Đưa bàn tay vào trong khung hình của camera và nhấn vào nút HỌC.</h4>
+            </div>
+            <div class="row">
+                <div class="column clearfix">
+                    <div class="float-right">
+                        <video id="cam-video" autoplay=""></video>
+                    </div>
+                </div>
+                <div class="column" style="padding-top: 50px">
+                    <div>
+                        <button id="train-rock-button" class="button button-outline">Học hình cái búa</button>
+                        <span id="train-rock-span">Chưa có dữ liệu</span>
+                    </div>
+                    <div>
+                        <button id="train-paper-button" class="button button-outline">Học hình tờ giấy</button>
+                        <span id="train-paper-span"> Chưa có dữ liệu</span>
+                    </div>
+                    <div class="">
+                        <button id="train-scissors-button" class="button button-outline">Học hình cái kéo</button>
+                        <span id="train-scissors-span"> Chưa có dữ liệu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; justify-content: center; padding-top: 15px;">
+                <button class="button-large" id="start-game-button" disabled>Bắt đầu chơi game</button>
+            </div>
+            <div class="row" style="display: flex; justify-content: center;">
+                <span id="game-status">Hãy huấn luyện mô hình trước khi bắt đầu game</span>
+            </div>
+            <div class="row">
+                <div class="column clearfix">
+                    <img id="rock-you" src="images/rock.png" class="flip float-right" hidden>
+                    <img id="paper-you" src="images/paper.png" class="float-right" hidden>
+                    <img id="scissors-you" src="images/scissors.png" class="float-right" hidden>
+                    <img id="you" class="float-right" hidden>
+                </div>
+                <div class="column">
+                    <img id="rock-cpu" src="images/rock.png" hidden>
+                    <img id="paper-cpu" src="images/paper.png" class="flip" hidden>
+                    <img id="scissors-cpu" src="images/scissors.png" class="flip" hidden>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
